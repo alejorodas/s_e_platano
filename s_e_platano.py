@@ -34,6 +34,15 @@ def usar_regla(nombre_sintoma):
   resultado = diagnostico(Enfermedad,nombre_sintoma)
   return resultado
 
-nombre_sintoma = pedir_por_pantalla(lista_menu)
-resultado = usar_regla(nombre_sintoma)
-mostrar_resultado(resultado)
+def main():
+  estado = True
+  while estado:
+    opcion = raw_input('Desea seguir en el programa? [S/N]')
+    if opcion == 'N':
+      break
+    else:
+      nombre_sintoma = pedir_por_pantalla(lista_menu)
+      resultado = usar_regla(nombre_sintoma)
+      mostrar_resultado(resultado)
+
+main()
