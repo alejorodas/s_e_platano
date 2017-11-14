@@ -1,5 +1,13 @@
 from pyDatalog import pyDatalog
+
+# Organos de la planta
 pyDatalog.create_terms('hoja, cormo, seudotallo, raquis, racimos, dedo')
+
+# Predicados y reglas
+pyDatalog.create_terms('tiene_sintoma, diagnostico, enfermedad, respuesta')
+
+# Variables
+pyDatalog.create_terms('Enfermedad')
 
 
 +hoja('seca')
@@ -34,7 +42,11 @@ pyDatalog.create_terms('hoja, cormo, seudotallo, raquis, racimos, dedo')
 
 
 enfermedad('moko') <= tiene_sintoma('hoja','seca') & tiene_sintoma('hoja','quebradiza')
+diagnostico('moko') <= respuesta('hoja','seca') & respuesta('hoja','quebradiza')
 
 #diagnostico('moko') <= respuesta('hoja',Sintoma1) & respuesta('hoja',Sintoma2)& (Sintoma1 != Sintoma2)
 #diagnostico('moko') <= tiene_sintoma(Organo, Sintoma1), tiene_sintoma(Organo, Sintoma2) & (Sintoma1 != Sintoma2)
 #diagnostico(Enfermedad, Sintoma1,Sintoma2) <= tiene_sintoma('hoja',Sintoma1) & tiene_sintoma('hoja',Sintoma2) & (Sintoma1 != Sintoma2) & (Enfermedad == 'moko')
+
+def consultar_diagnostico():
+  return diagnostico(Enfermedad)
