@@ -9,7 +9,7 @@ pyDatalog.create_terms('tiene_sintoma, diagnostico, enfermedad, respuesta')
 # Variables
 pyDatalog.create_terms('Enfermedad')
 
-
+# Moko
 +hoja('seca')
 +hoja('quebradiza')
 +hoja('no_se_desprende')
@@ -22,14 +22,15 @@ pyDatalog.create_terms('Enfermedad')
 +racimos('deformes')
 +dedo('deformes')
 
-
+# Pudricioon acuosa del pseudotallo bacteriosis (Dickeya chrysanthemi)
++hoja('quemazon_hojas_viejas')
 +hoja('amarillamiento_total')
 +seudotallo('manchas_acuosas')
 +seudotallo('manchas_translucidas_color_amarillento')
 +seudotallo('manchas_translucidas_rojizo')
 +seudotallo('debil')
 
-
+# Mal de Panama
 +hoja('amarillamiento')
 +hoja('marchita')
 +hoja('colo_cafe')
