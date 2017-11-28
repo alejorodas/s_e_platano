@@ -1,5 +1,4 @@
 from pyDatalog import pyDatalog, pyEngine
-from pyDatalog.pyDatalog import assert_fact, load, ask
 import logging
 import controlador
 import ui
@@ -27,7 +26,6 @@ def main():
     else:
       controlador.pantalla(lista_menu)
 
-  controlador.consultar_base_dinamica()
   resultado = controlador.usar_regla_diagnostico()
   controlador.mostrar_resultado(resultado)
 
