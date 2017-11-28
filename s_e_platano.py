@@ -14,23 +14,16 @@ lista_menu = ['seca', 'quebradiza', 'no_se_desprende', 'seca_en_bordes', 'franja
 def main():
   estado = True
   while estado:
-    ui.menu_principal()
-    opcion = raw_input('Digite su opcion: ')
-    if opcion == '7':
+    opcion = ui.menu_principal()
+    if opcion == '4':
       break
     elif opcion == '1':
-      ui.menu_hoja()
-      opcion = raw_input('Digite su opcion: ')
-    # elif opcion == '':
-    #   #corno
-    # elif opcion == '':
-    #   #seudotallo
-    # elif opcion == '':
-    #   #raquis
-    # elif opcion == '':
-    #   #racimos
-    # elif opcion == '':
-    #   #dedos
+      sintoma_seleccionado = ui.menu_hoja()
+      controlador.almacenar_respuesta('hoja',sintoma_seleccionado)
+    # elif opcion == '2':
+    #   ui.menu_cormo()
+    # elif opcion == '3':
+    #   ui.menu_seudotallo()
     else:
       controlador.pantalla(lista_menu)
 
