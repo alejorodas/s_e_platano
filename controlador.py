@@ -1,4 +1,3 @@
-from pyDatalog.pyDatalog import assert_fact, load, ask
 import base_conocimiento
 
 def mostrar_resultado(resultado):
@@ -15,12 +14,9 @@ def pantalla(lista_menu):
 def usar_regla_diagnostico():
   return base_conocimiento.consultar_diagnostico()
 
-def consultar_base_dinamica():
-  print(ask('respuesta(Organo,Sintoma)'))
-
 def almacenar_respuesta(organo,sintoma_seleccionado):
   #Moko
-  if(sintoma_seleccionado == 1):
+  if(sintoma_seleccionado == '1'):
     base_conocimiento.almacenar_respuesta_base_dinamica(organo,'seca')
-  elif (sintoma_seleccionado == 2):
+  elif (sintoma_seleccionado == '2'):
     base_conocimiento.almacenar_respuesta_base_dinamica(organo,'quebradiza')
