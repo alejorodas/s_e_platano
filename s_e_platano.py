@@ -2,6 +2,7 @@ from pyDatalog import pyDatalog, pyEngine
 from pyDatalog.pyDatalog import assert_fact, load, ask
 import logging
 import controlador
+import ui
 
 pyEngine.Logging = True
 logging.basicConfig(level=logging.INFO)
@@ -13,9 +14,16 @@ lista_menu = ['seca', 'quebradiza', 'no_se_desprende', 'seca_en_bordes', 'franja
 def main():
   estado = True
   while estado:
-    opcion = raw_input('Desea seguir en el programa? [S/N]')
-    if opcion == 'N':
+    opcion = ui.menu_principal()
+    if opcion == '4':
       break
+    elif opcion == '1':
+      sintoma_seleccionado = ui.menu_hoja()
+      controlador.almacenar_respuesta('hoja',sintoma_seleccionado)
+    # elif opcion == '2':
+    #   ui.menu_cormo()
+    # elif opcion == '3':
+    #   ui.menu_seudotallo()
     else:
       controlador.pantalla(lista_menu)
 
