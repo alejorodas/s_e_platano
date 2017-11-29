@@ -1,6 +1,19 @@
 # -*- coding: utf-8 -*- 
-def menu_principal():
+import os
 
+def limpiar_pantalla():
+  os.system('clear')
+
+def mensaje_salida():
+    limpiar_pantalla()
+    print(""" 
+            ----------------------------------------------------------------------------
+                                    Usted ha salido de la aplicación
+            ----------------------------------------------------------------------------
+
+    """)
+
+def menu_principal():
     print("""
             Sistema Experto Para El Diagnostico de Enfermedades Platano Dominico Harton
             ----------------------------------------------------------------------------
@@ -11,13 +24,14 @@ def menu_principal():
             Que organo de la planta ha sido afectado?
             1. Hoja
             2. Cormo
-            3. Seudotallo 
-            4. Salir del programa
+            3. Seudotallo
+            4. Obtener diagnóstico
+            5. Salir del programa
     """)
     opcion = raw_input('Digite su opcion: ')
     return opcion
 
-def menu_hoja():
+def pantalla_sintoma_menu_hoja():
     print(""" 
             Seleccione los sintomas que presenta la hoja
             ----------------------------------------------------------------------------
@@ -30,9 +44,10 @@ def menu_hoja():
             5. Retornar al menú principal
     """)
     opcion = raw_input('Digite su opcion: ')
+    limpiar_pantalla()
     return opcion
 
-def menu_cormo():
+def pantalla_sintoma_cormo():
     print(""" 
             Seleccione los sintomas que presenta el cormo
             ----------------------------------------------------------------------------
@@ -46,7 +61,7 @@ def menu_cormo():
     opcion = raw_input('Digite su opcion: ')
     return opcion
 
-def menu_seudotallo():
+def pantalla_sintoma_seudotallo():
     print(""" 
             Seleccione los sintomas que presenta el seudotallo
             ----------------------------------------------------------------------------
