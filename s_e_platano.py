@@ -1,5 +1,4 @@
 from pyDatalog import pyDatalog, pyEngine
-from pyDatalog.pyDatalog import assert_fact, load, ask
 import logging
 import controlador
 import ui
@@ -7,28 +6,36 @@ import ui
 pyEngine.Logging = True
 logging.basicConfig(level=logging.INFO)
 
-pyDatalog.create_terms('diagnostico, enfermedad, respuesta')
-
-lista_menu = ['seca', 'quebradiza', 'no_se_desprende', 'seca_en_bordes', 'franja_color_amarilla_intenso', 'amarillamiento_total', 'amarillamiento']
+def menu_hoja():
+  estado = True
+  while estado:
+    opcion = ui.pantalla_sintoma_menu_hoja()
+    if opcion == '5':
+        break
+    else:
+       controlador.almacenar_respuesta('hoja',opcion)
 
 def main():
   estado = True
   while estado:
     opcion = ui.menu_principal()
-    if opcion == '4':
+    if opcion == '5':
+      ui.mensaje_salida()
       break
     elif opcion == '1':
-      sintoma_seleccionado = ui.menu_hoja()
-      controlador.almacenar_respuesta('hoja',sintoma_seleccionado)
+      menu_hoja()
+      
     # elif opcion == '2':
     #   ui.menu_cormo()
     # elif opcion == '3':
     #   ui.menu_seudotallo()
+    elif opcion == '4':
+      resultado = controlador.usar_regla_diagnostico()
+      controlador.mostrar_resultado(resultado)
     else:
       controlador.pantalla(lista_menu)
 
-  controlador.consultar_base_dinamica()
-  resultado = controlador.usar_regla_diagnostico()
-  controlador.mostrar_resultado(resultado)
 
-main()
+if __name__ == '__main__':
+  main()
+

@@ -1,4 +1,5 @@
 from pyDatalog import pyDatalog
+from pyDatalog.pyDatalog import assert_fact, load, ask
 
 # Organos de la planta
 pyDatalog.create_terms('hoja, cormo, seudotallo, raquis, racimos, dedo')
@@ -64,13 +65,15 @@ enfermedad('moko') <= tiene_sintoma('hoja','seca') & \
 
 
 
-diagnostico('moko') <= respuesta('hoja','seca') & respuesta('hoja','quebradiza') & \
-                      respuesta('hoja','no_se_desprende') & \
-                      respuesta('hoja','seca_en_bordes') & \
-                      respuesta('hoja','franja_color_amarilla_intenso') & \
-                      respuesta('cormo','linea_color_marron') & \
-                      respuesta('cormo','linea_color_negro') & \
-                      respuesta('seudotallo','puntos_cafes_oscuros')
+# diagnostico('moko') <= respuesta('hoja','seca') & respuesta('hoja','quebradiza') & \
+#                       respuesta('hoja','no_se_desprende') & \
+#                       respuesta('hoja','seca_en_bordes') & \
+#                       respuesta('hoja','franja_color_amarilla_intenso') & \
+#                       respuesta('cormo','linea_color_marron') & \
+#                       respuesta('cormo','linea_color_negro') & \
+#                       respuesta('seudotallo','puntos_cafes_oscuros')
+
+diagnostico('moko') <= respuesta('hoja','seca') & respuesta('hoja','quebradiza')
 
 #diagnostico('moko') <= respuesta('hoja',Sintoma1) & respuesta('hoja',Sintoma2)& (Sintoma1 != Sintoma2)
 #diagnostico('moko') <= tiene_sintoma(Organo, Sintoma1), tiene_sintoma(Organo, Sintoma2) & (Sintoma1 != Sintoma2)
@@ -81,3 +84,6 @@ def consultar_diagnostico():
 
 def almacenar_respuesta_base_dinamica(organo,nombre_sintoma):
   assert_fact( 'respuesta', organo, nombre_sintoma )
+
+def consultar_base_dinamica():
+  print(ask('respuesta(Organo,Sintoma)'))
