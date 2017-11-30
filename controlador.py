@@ -1,15 +1,8 @@
 import base_conocimiento
+import diagnostico
 
 def mostrar_resultado(resultado):
-  print(resultado)
-
-def pedir_por_pantalla(lista_menu):
-  nombre_sintoma = raw_input('Seleccione: ' + str(lista_menu))
-  return nombre_sintoma
-
-def pantalla(lista_menu):
-  nombre_sintoma=raw_input('Seleccione: ' + str(lista_menu))
-  almacenar_respuesta_base_dinamica(nombre_sintoma)
+  diagnostico.mostrar_tratamiento(resultado.v()[0])
 
 def usar_regla_diagnostico():
   return base_conocimiento.consultar_diagnostico()

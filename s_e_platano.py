@@ -3,8 +3,9 @@ import logging
 import controlador
 import ui
 
-pyEngine.Logging = True
-logging.basicConfig(level=logging.INFO)
+# Descomente para poder observar el log
+# pyEngine.Logging = True
+# logging.basicConfig(level=logging.INFO)
 
 def menu_hoja():
   estado = True
